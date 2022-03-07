@@ -12,7 +12,7 @@ struct GameModel: Decodable {
 }
 
 struct Game: Decodable {
-    var id: Int
+    var id: Int?
     var slug: String?
     var name: String?
     var background_image: String?

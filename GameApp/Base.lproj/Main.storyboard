@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hnc-Gg-BYX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wIS-xj-sQ9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -247,11 +247,164 @@
                     <connections>
                         <outlet property="gameListCollectionView" destination="9Hn-sM-UO4" id="4MR-3S-rS6"/>
                         <outlet property="slideCollectionView" destination="qED-ww-Cqg" id="5EU-ux-4NV"/>
+                        <segue destination="E8D-dY-Sbf" kind="show" identifier="goToGameDetails" id="Tok-hT-PX0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPJ-yT-4aa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-546.37681159420299" y="-658.25892857142856"/>
+        </scene>
+        <!--Game DetailsVC-->
+        <scene sceneID="eb6-74-By6">
+            <objects>
+                <viewController storyboardIdentifier="GameDetailsVC" id="E8D-dY-Sbf" customClass="GameDetailsVC" customModule="GameApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NDE-TG-JGA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEH-9T-Sep" userLabel="Top View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TW-zf-iXH">
+                                        <rect key="frame" x="5" y="10" width="68" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system" title="Back"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstItem="0TW-zf-iXH" firstAttribute="top" secondItem="DEH-9T-Sep" secondAttribute="top" constant="10" id="Kgm-VF-3QX"/>
+                                    <constraint firstAttribute="height" constant="50" id="L7c-RX-d9A"/>
+                                    <constraint firstItem="0TW-zf-iXH" firstAttribute="leading" secondItem="DEH-9T-Sep" secondAttribute="leading" constant="5" id="VGk-cb-jMG"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6Q-JN-bxU" userLabel="Img View">
+                                <rect key="frame" x="0.0" y="50" width="414" height="250"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deneme" translatesAutoresizingMaskIntoConstraints="NO" id="ZuZ-kC-wHE">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="CQm-tr-x5Q"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRm-Xc-pQl">
+                                        <rect key="frame" x="349.5" y="199" width="44.5" height="31"/>
+                                        <color key="tintColor" red="0.85490196080000003" green="0.86666666670000003" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="suit.heart" catalog="system"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ZuZ-kC-wHE" secondAttribute="trailing" id="0Iu-sR-bV5"/>
+                                    <constraint firstItem="ZuZ-kC-wHE" firstAttribute="leading" secondItem="W6Q-JN-bxU" secondAttribute="leading" id="8kz-BO-mvl"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZuZ-kC-wHE" secondAttribute="bottom" id="FJX-Pw-SRm"/>
+                                    <constraint firstItem="cRm-Xc-pQl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W6Q-JN-bxU" secondAttribute="leading" constant="20" symbolic="YES" id="QTA-cs-A6Z"/>
+                                    <constraint firstAttribute="bottom" secondItem="cRm-Xc-pQl" secondAttribute="bottom" constant="20" id="WVb-0N-XTt"/>
+                                    <constraint firstItem="ZuZ-kC-wHE" firstAttribute="top" secondItem="W6Q-JN-bxU" secondAttribute="top" id="deT-2l-ESF"/>
+                                    <constraint firstAttribute="trailing" secondItem="cRm-Xc-pQl" secondAttribute="trailing" constant="20" id="tfI-h5-yPR"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQe-Qa-w5k">
+                                <rect key="frame" x="0.0" y="300" width="414" height="646"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Bo-1G-Hro">
+                                        <rect key="frame" x="10" y="10" width="394" height="84.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugu-XB-gxC">
+                                                <rect key="frame" x="0.0" y="0.0" width="123.5" height="27.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MetaCritic Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5e3-9p-AlD">
+                                                <rect key="frame" x="0.0" y="35.5" width="117.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Released Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZt-YZ-DH4">
+                                                <rect key="frame" x="0.0" y="64" width="110" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBi-ld-gg1">
+                                        <rect key="frame" x="20" y="114.5" width="374" height="511.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iCG-SY-pbA">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="539.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cif-jG-uvi">
+                                                        <rect key="frame" x="10" y="10" width="354" height="519.5"/>
+                                                        <mutableString key="text">303 Squadron: Battle of Britain aims to portray the life of WW2 air force personnel - not only of a pilot taking part in aerial combat, but also of a mechanic from the ground crew repairing the fighter planes. The game is based on historical events, focusing on real experiences of No. 303. Squadron’s members during the fateful days of the Battle of Britain. It is not only a video game - it is also a tribute to the pilots and technical personnel of the era.
+No. 303 Polish Fighter Squadron was a unit formed in Britain in July 1940 from Polish pilots. It fought alongside other RAF units in the Battle of Britain. Skill, belligerence and extraordinary maneuvers were traits of the 303 Sqdn. it one of the most noteworthy air units in RAF. It was an asset against the waves of fighters and bombers aiming to weaken the Britain for the upcoming invasion.
+Now, you can learn about those heroes. And become one of them.Game’s Features aerial combat of BoB in missions based on actual day-by-day skirmishes documented in the Battle’s calendar
+fighter plane repairs and maintenance for improving the air worth of the Squadron’s trusty Hawker Hurricanes
+Northolt air base with interactive environment for much more realistic BoB experience and discovering the history
+historical events to discover and reenact to pay a tribute to heroes, both pilots and personnel"</mutableString>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="cif-jG-uvi" firstAttribute="top" secondItem="iCG-SY-pbA" secondAttribute="top" constant="10" id="0vC-d6-Ool"/>
+                                                    <constraint firstItem="cif-jG-uvi" firstAttribute="leading" secondItem="iCG-SY-pbA" secondAttribute="leading" constant="10" id="7bp-xV-87r"/>
+                                                    <constraint firstAttribute="bottom" secondItem="cif-jG-uvi" secondAttribute="bottom" constant="10" id="GHk-cR-LVa"/>
+                                                    <constraint firstAttribute="trailing" secondItem="cif-jG-uvi" secondAttribute="trailing" constant="10" id="h7A-6s-2pE"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="iCG-SY-pbA" firstAttribute="leading" secondItem="wBi-ld-gg1" secondAttribute="leading" id="1gD-T9-kGD"/>
+                                            <constraint firstAttribute="bottom" secondItem="iCG-SY-pbA" secondAttribute="bottom" id="Wqt-ty-9aS"/>
+                                            <constraint firstAttribute="trailing" secondItem="iCG-SY-pbA" secondAttribute="trailing" id="gf5-Pl-G46"/>
+                                            <constraint firstItem="iCG-SY-pbA" firstAttribute="width" secondItem="wBi-ld-gg1" secondAttribute="width" id="pUq-le-xMD"/>
+                                            <constraint firstItem="iCG-SY-pbA" firstAttribute="top" secondItem="wBi-ld-gg1" secondAttribute="top" id="vmm-py-Oc7"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4Bo-1G-Hro" secondAttribute="trailing" constant="10" id="1bc-bY-sSh"/>
+                                    <constraint firstItem="wBi-ld-gg1" firstAttribute="top" secondItem="4Bo-1G-Hro" secondAttribute="bottom" constant="20" id="IuU-gd-1lA"/>
+                                    <constraint firstAttribute="bottom" secondItem="wBi-ld-gg1" secondAttribute="bottom" constant="20" id="UWs-Vg-Y4f"/>
+                                    <constraint firstAttribute="trailing" secondItem="wBi-ld-gg1" secondAttribute="trailing" constant="20" id="mie-mj-mvK"/>
+                                    <constraint firstItem="4Bo-1G-Hro" firstAttribute="top" secondItem="dQe-Qa-w5k" secondAttribute="top" constant="10" id="pLO-RB-kn8"/>
+                                    <constraint firstItem="wBi-ld-gg1" firstAttribute="leading" secondItem="dQe-Qa-w5k" secondAttribute="leading" constant="20" id="v2p-Ai-2fL"/>
+                                    <constraint firstItem="4Bo-1G-Hro" firstAttribute="leading" secondItem="dQe-Qa-w5k" secondAttribute="leading" constant="10" id="vqo-ND-fEg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="02a-q3-xeL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="02a-q3-xeL" firstAttribute="trailing" secondItem="DEH-9T-Sep" secondAttribute="trailing" id="4QA-kh-8gg"/>
+                            <constraint firstItem="dQe-Qa-w5k" firstAttribute="trailing" secondItem="02a-q3-xeL" secondAttribute="trailing" id="9u8-Yy-A2o"/>
+                            <constraint firstItem="02a-q3-xeL" firstAttribute="trailing" secondItem="W6Q-JN-bxU" secondAttribute="trailing" id="ACl-kc-SUc"/>
+                            <constraint firstAttribute="bottom" secondItem="dQe-Qa-w5k" secondAttribute="bottom" id="Me3-Mj-H5c"/>
+                            <constraint firstItem="DEH-9T-Sep" firstAttribute="leading" secondItem="02a-q3-xeL" secondAttribute="leading" id="bbw-Ce-MtM"/>
+                            <constraint firstItem="dQe-Qa-w5k" firstAttribute="top" secondItem="W6Q-JN-bxU" secondAttribute="bottom" id="bl1-1h-GaQ"/>
+                            <constraint firstItem="DEH-9T-Sep" firstAttribute="top" secondItem="02a-q3-xeL" secondAttribute="top" id="e74-WY-PQ1"/>
+                            <constraint firstItem="dQe-Qa-w5k" firstAttribute="leading" secondItem="02a-q3-xeL" secondAttribute="leading" id="hwp-9h-uv7"/>
+                            <constraint firstItem="W6Q-JN-bxU" firstAttribute="top" secondItem="DEH-9T-Sep" secondAttribute="bottom" id="pYe-3n-QOH"/>
+                            <constraint firstItem="W6Q-JN-bxU" firstAttribute="leading" secondItem="02a-q3-xeL" secondAttribute="leading" id="qPW-9p-aYB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="PDn-aw-UEK"/>
+                    <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="gameDescriptionLabel" destination="cif-jG-uvi" id="tZE-n3-xeK"/>
+                        <outlet property="gameImg" destination="ZuZ-kC-wHE" id="pHk-Cp-sxq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z3j-gF-nEn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="353.62318840579712" y="-658.25892857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4GL-MT-CPl">
@@ -269,7 +422,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VkO-1Z-Hym" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1520" y="-211"/>
+            <point key="canvasLocation" x="-1520" y="-212"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -322,11 +475,19 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="deneme" width="1920" height="620"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="suit.heart" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
