@@ -9,6 +9,7 @@ import Foundation
 
 struct GameModel: Decodable {
     var results: [Game]?
+    var next: String?
 }
 
 struct Game: Decodable {

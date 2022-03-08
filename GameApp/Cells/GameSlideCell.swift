@@ -8,7 +8,7 @@
 import UIKit
 
 class GameSlideCell: UICollectionViewCell {
-    @IBOutlet weak var slideImageView: UIImageView!
+    @IBOutlet weak var slideImageView: CustomImageView!
     @IBOutlet weak var ratingLabel: UILabel!
    // @IBOutlet weak var ratingStar: UIImageView!
     //@IBOutlet weak var gameReleaseDateLabel: UILabel!
@@ -18,6 +18,7 @@ class GameSlideCell: UICollectionViewCell {
         self.gameNameLabel.text = model.name
         //self.releaseDateLabel.text = model.released
         self.ratingLabel.text = "\(model.rating!)"
-        self.slideImageView.loadFrom(URLAddress: model.background_image!)
+        //self.slideImageView.loadFrom(URLAddress: model.background_image!)
+        self.slideImageView.loadImage(from: model.background_image!)
     }
 }

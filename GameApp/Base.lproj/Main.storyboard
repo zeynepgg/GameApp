@@ -69,7 +69,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deneme" translatesAutoresizingMaskIntoConstraints="NO" id="Haq-WS-cqr">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deneme" translatesAutoresizingMaskIntoConstraints="NO" id="Haq-WS-cqr" customClass="CustomImageView" customModule="GameApp" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="200" id="0JD-WT-A58"/>
@@ -172,7 +172,7 @@
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEH-Ho-XzE">
                                                                             <rect key="frame" x="0.0" y="0.0" width="197" height="148"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deneme" translatesAutoresizingMaskIntoConstraints="NO" id="cHG-Wb-Gro">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deneme" translatesAutoresizingMaskIntoConstraints="NO" id="cHG-Wb-Gro" customClass="CustomImageView" customModule="GameApp" customModuleProvider="target">
                                                                                     <rect key="frame" x="15" y="0.0" width="182" height="148"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="150" id="hL4-jU-nr9"/>
@@ -360,12 +360,12 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cif-jG-uvi">
                                                         <rect key="frame" x="10" y="10" width="354" height="519.5"/>
-                                                        <mutableString key="text">303 Squadron: Battle of Britain aims to portray the life of WW2 air force personnel - not only of a pilot taking part in aerial combat, but also of a mechanic from the ground crew repairing the fighter planes. The game is based on historical events, focusing on real experiences of No. 303. Squadron’s members during the fateful days of the Battle of Britain. It is not only a video game - it is also a tribute to the pilots and technical personnel of the era.
+                                                        <string key="text">303 Squadron: Battle of Britain aims to portray the life of WW2 air force personnel - not only of a pilot taking part in aerial combat, but also of a mechanic from the ground crew repairing the fighter planes. The game is based on historical events, focusing on real experiences of No. 303. Squadron’s members during the fateful days of the Battle of Britain. It is not only a video game - it is also a tribute to the pilots and technical personnel of the era.
 No. 303 Polish Fighter Squadron was a unit formed in Britain in July 1940 from Polish pilots. It fought alongside other RAF units in the Battle of Britain. Skill, belligerence and extraordinary maneuvers were traits of the 303 Sqdn. it one of the most noteworthy air units in RAF. It was an asset against the waves of fighters and bombers aiming to weaken the Britain for the upcoming invasion.
 Now, you can learn about those heroes. And become one of them.Game’s Features aerial combat of BoB in missions based on actual day-by-day skirmishes documented in the Battle’s calendar
 fighter plane repairs and maintenance for improving the air worth of the Squadron’s trusty Hawker Hurricanes
 Northolt air base with interactive environment for much more realistic BoB experience and discovering the history
-historical events to discover and reenact to pay a tribute to heroes, both pilots and personnel"</mutableString>
+historical events to discover and reenact to pay a tribute to heroes, both pilots and personnel"</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>

@@ -1,16 +1,19 @@
 //
-//  UIImageView Extension.swift
+//  GameImageView.swift
 //  GameApp
 //
-//  Created by Zeynep Gizem Gürsoy on 6.03.2022.
+//  Created by Zeynep Gizem Gürsoy on 8.03.2022.
 //
 
 import UIKit
-/*
-extension UIImageView {
+import Foundation
+
+class GameImageView: UIImageView {
     var lastURL = ""
+    
     func loadFrom(URLAddress: String) {
         lastURL = URLAddress
+        
         guard let url = URL(string: URLAddress) else {
             return
         }
@@ -20,13 +23,17 @@ extension UIImageView {
 
                 if let loadedImage = UIImage(data: imageData) {
                     DispatchQueue.main.async { [weak self] in
-                        if lastURL == URLAddress
-                        self?.image = loadedImage //
+                        if self!.lastURL == URLAddress {
+                            self?.image = loadedImage
+                        }else{
+                            return
+                        }
+                         
                     }
                        
                 }
             }
         }
     }
+
 }
-*/
