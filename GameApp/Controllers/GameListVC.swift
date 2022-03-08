@@ -9,11 +9,14 @@ import UIKit
 
 class GameListVC: UIViewController {
 
+    @IBOutlet weak var slideStack: UIStackView!
     @IBOutlet weak var gameListCollectionView: UICollectionView!
     @IBOutlet weak var slideCollectionView: UICollectionView!
     
-    //var gameList = [GameModel]()
+    @IBOutlet weak var searchBar: UISearchBar!
     
+    var filteredGames = [Game]()
+    var isFiltering: Bool = false
     var games = [Game](){
         didSet {
             DispatchQueue.main.async {
@@ -51,7 +54,7 @@ class GameListVC: UIViewController {
                 print(error)
             }
         }
-        
+        setupEmptyBackgroundView()
         //slideCollectionView.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         
     }
@@ -61,18 +64,36 @@ class GameListVC: UIViewController {
             destinationVC.gameDetails = gameDetails
         }
     }
-    
+    func setupEmptyBackgroundView(){
+        let emptyBackgroundView = EmptyView()
+        gameListCollectionView.backgroundView = emptyBackgroundView
+    }
 
 
 }
 
+
 extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         
         if collectionView == slideCollectionView {
             return slideArray.count
         }else {
-            return games.count - 3
+            if isFiltering {
+                if filteredGames.count == 0 {
+                    gameListCollectionView.backgroundView?.isHidden = false
+                }else {
+                    gameListCollectionView.backgroundView?.isHidden = true
+                }
+                slideStack.isHidden = true
+                return filteredGames.count
+                
+            }else{
+                gameListCollectionView.backgroundView?.isHidden = true
+                return games.count - 3
+            }
+            
         }
        
     }
@@ -80,14 +101,20 @@ extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == slideCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameSlideCell", for: indexPath) as! GameSlideCell
-            print("-----------------------\(indexPath.row)")
             
             cell.configure(model: slideArray[indexPath.row])
             
             return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameListCell", for: indexPath) as! GameListCell
-            cell.configure(model: games[indexPath.row + 3])
+            
+            if isFiltering{
+                cell.configure(model: filteredGames[indexPath.row])
+            }else{
+                cell.configure(model: games[indexPath.row + 3])
+            }
+           
+            
             return cell
         }
         
@@ -96,7 +123,7 @@ extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == slideCollectionView {
             //let bounds = slideCollectionView.bounds
-            return CGSize(width: self.view.bounds.width, height: 150)
+            return CGSize(width: self.view.bounds.width, height: 200)
         }else {
             let bounds = collectionView.bounds
             return CGSize(width: self.view.bounds.width, height: bounds.width / 3)
@@ -129,4 +156,26 @@ extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
     }
     
     
+}
+
+extension GameListVC: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        updateSearchResults(searchText: searchText)
+    }
+    func updateSearchResults(searchText: String) {
+        if searchText.count < 3 || searchText.isEmpty {
+            slideStack.isHidden = false
+            filteredGames.removeAll()
+            isFiltering = false
+            gameListCollectionView.reloadData()
+        }else {
+            filteredGames = games.filter({ (gameInfo:Game) -> Bool in
+                        return gameInfo.name!.lowercased().contains(searchText.lowercased())
+                    })
+                
+            isFiltering = true
+            gameListCollectionView.reloadData()
+            }
+        
+    }
 }
