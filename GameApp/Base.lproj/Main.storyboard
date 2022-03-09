@@ -16,14 +16,46 @@
                     <view key="view" contentMode="scaleToFill" id="giG-vo-LF7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="p1v-5w-FxH">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="V4F-VY-oKT">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoritesCell" id="YTg-5l-3HV" customClass="FavoritesCell" customModule="GameApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="os9-SW-lbS">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tsk-zH-H9w"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tsk-zH-H9w" firstAttribute="trailing" secondItem="p1v-5w-FxH" secondAttribute="trailing" id="FsS-QX-PiD"/>
+                            <constraint firstItem="p1v-5w-FxH" firstAttribute="top" secondItem="tsk-zH-H9w" secondAttribute="top" id="H01-bh-Li3"/>
+                            <constraint firstItem="p1v-5w-FxH" firstAttribute="leading" secondItem="tsk-zH-H9w" secondAttribute="leading" id="THy-42-EcR"/>
+                            <constraint firstItem="tsk-zH-H9w" firstAttribute="bottom" secondItem="p1v-5w-FxH" secondAttribute="bottom" id="Z9g-7S-O1N"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" id="OtA-8z-X7K"/>
+                    <connections>
+                        <outlet property="collectionView" destination="p1v-5w-FxH" id="nxa-vS-5f8"/>
+                        <segue destination="E8D-dY-Sbf" kind="modal" identifier="goToGameDetails" modalPresentationStyle="fullScreen" id="NmA-sE-O5o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDE-2k-7CL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-630" y="179"/>
+            <point key="canvasLocation" x="-546" y="179"/>
         </scene>
         <!--Games-->
         <scene sceneID="WPU-JE-aJE">
@@ -77,9 +109,9 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUI-kB-PjY">
-                                                                    <rect key="frame" x="0.0" y="108" width="414" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="107.5" width="414" height="20.5"/>
                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FAa-rk-hV3">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1DH-yb-NY1">
@@ -191,7 +223,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Ax-mb-nnd">
                                                                             <rect key="frame" x="197" y="34.5" width="197" height="79"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Of The Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fta-G4-Gpe">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Of The Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fta-G4-Gpe">
                                                                                     <rect key="frame" x="32.5" y="0.0" width="132" height="21"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="21" id="dOG-Ew-rt5"/>
@@ -268,7 +300,7 @@
                         <outlet property="searchBar" destination="Ab5-yH-Y2Z" id="ttp-HO-0rT"/>
                         <outlet property="slideCollectionView" destination="qED-ww-Cqg" id="5EU-ux-4NV"/>
                         <outlet property="slideStack" destination="vwZ-Jc-rDi" id="piY-qy-wMZ"/>
-                        <segue destination="E8D-dY-Sbf" kind="show" identifier="goToGameDetails" id="Tok-hT-PX0"/>
+                        <segue destination="E8D-dY-Sbf" kind="presentation" identifier="goToGameDetails" modalPresentationStyle="fullScreen" id="Tok-hT-PX0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPJ-yT-4aa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -280,16 +312,19 @@
             <objects>
                 <viewController storyboardIdentifier="GameDetailsVC" id="E8D-dY-Sbf" customClass="GameDetailsVC" customModule="GameApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NDE-TG-JGA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEH-9T-Sep" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TW-zf-iXH">
                                         <rect key="frame" x="5" y="10" width="68" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system" title="Back"/>
+                                        <connections>
+                                            <action selector="backButtonClicked:" destination="E8D-dY-Sbf" eventType="touchUpInside" id="Qsn-IT-ffi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
@@ -300,7 +335,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6Q-JN-bxU" userLabel="Img View">
-                                <rect key="frame" x="0.0" y="50" width="414" height="250"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="250"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deneme" translatesAutoresizingMaskIntoConstraints="NO" id="ZuZ-kC-wHE">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
@@ -313,6 +348,9 @@
                                         <color key="tintColor" red="0.85490196080000003" green="0.86666666670000003" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="suit.heart" catalog="system"/>
+                                        <connections>
+                                            <action selector="favoriteButtonClicked:" destination="E8D-dY-Sbf" eventType="touchUpInside" id="Kc8-p7-1g2"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -327,7 +365,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQe-Qa-w5k">
-                                <rect key="frame" x="0.0" y="300" width="414" height="646"/>
+                                <rect key="frame" x="0.0" y="344" width="414" height="656"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Bo-1G-Hro">
                                         <rect key="frame" x="10" y="10" width="394" height="84.5"/>
@@ -353,12 +391,12 @@
                                         </subviews>
                                     </stackView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBi-ld-gg1">
-                                        <rect key="frame" x="20" y="114.5" width="374" height="511.5"/>
+                                        <rect key="frame" x="20" y="114.5" width="374" height="521.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iCG-SY-pbA">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="539.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cif-jG-uvi">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cif-jG-uvi">
                                                         <rect key="frame" x="10" y="10" width="354" height="519.5"/>
                                                         <string key="text">303 Squadron: Battle of Britain aims to portray the life of WW2 air force personnel - not only of a pilot taking part in aerial combat, but also of a mechanic from the ground crew repairing the fighter planes. The game is based on historical events, focusing on real experiences of No. 303. Squadron’s members during the fateful days of the Battle of Britain. It is not only a video game - it is also a tribute to the pilots and technical personnel of the era.
 No. 303 Polish Fighter Squadron was a unit formed in Britain in July 1940 from Polish pilots. It fought alongside other RAF units in the Battle of Britain. Skill, belligerence and extraordinary maneuvers were traits of the 303 Sqdn. it one of the most noteworthy air units in RAF. It was an asset against the waves of fighters and bombers aiming to weaken the Britain for the upcoming invasion.
@@ -419,6 +457,7 @@ historical events to discover and reenact to pay a tribute to heroes, both pilot
                     <navigationItem key="navigationItem" id="PDn-aw-UEK"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
+                        <outlet property="favoriteButton" destination="cRm-Xc-pQl" id="8Za-rE-5fc"/>
                         <outlet property="gameDescriptionLabel" destination="cif-jG-uvi" id="tZE-n3-xeK"/>
                         <outlet property="gameImg" destination="ZuZ-kC-wHE" id="pHk-Cp-sxq"/>
                     </connections>
@@ -495,6 +534,9 @@ historical events to discover and reenact to pay a tribute to heroes, both pilot
             <point key="canvasLocation" x="-3159" y="-212"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Tok-hT-PX0"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="deneme" width="1920" height="620"/>

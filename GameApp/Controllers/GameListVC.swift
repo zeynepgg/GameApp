@@ -65,6 +65,7 @@ class GameListVC: UIViewController {
         if segue.identifier == "goToGameDetails" {
             let destinationVC = segue.destination as! GameDetailsVC
             destinationVC.gameDetails = gameDetails
+            destinationVC.selectedGame = selectedGame
         }
     }
     func setupEmptyBackgroundView(){

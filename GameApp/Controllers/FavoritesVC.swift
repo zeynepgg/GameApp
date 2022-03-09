@@ -9,21 +9,46 @@ import UIKit
 
 class FavoritesVC: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    var selectedGame: GameDetailsModel?
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.register(UINib(nibName: "FavoritesCell", bundle: nil), forCellWithReuseIdentifier: "FavoritesCell")
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
     }
-    */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToGameDetails" {
+            let destinationVC = segue.destination as! GameDetailsVC
+            destinationVC.gameDetails = selectedGame
+        }
+    }
+}
 
+extension FavoritesVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return FavoriteGame.sharedIntance.favoriteGames.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesCell", for: indexPath) as! FavoritesCell
+        cell.configure(model: FavoriteGame.sharedIntance.favoriteGames[indexPath.row])
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let bounds = collectionView.bounds
+        return CGSize(width: bounds.width - 10, height: bounds.height / 6)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedGame = FavoriteGame.sharedIntance.favoriteGames[indexPath.row]
+        self.performSegue(withIdentifier: "goToGameDetails", sender: self)
+    }
+    
+    
 }
