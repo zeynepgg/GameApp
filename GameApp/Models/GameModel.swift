@@ -12,7 +12,7 @@ struct GameModel: Decodable {
     var next: String?
 }
 
-struct Game: Decodable {
+struct Game: Decodable, Equatable {
     var id: Int?
     var slug: String?
     var name: String?

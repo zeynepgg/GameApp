@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct GameDetailsModel: Decodable {
+struct GameDetailsModel: Decodable, Equatable {
     var id: Int?
     var slug: String?
     var name: String?
     var description_raw: String?
     var metacritic: Int?
+    var background_image: String?
 }
