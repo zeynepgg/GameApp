@@ -9,10 +9,10 @@ import UIKit
 
 class GameListVC: UIViewController {
 
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var slideStack: UIStackView!
     @IBOutlet weak var gameListCollectionView: UICollectionView!
     @IBOutlet weak var slideCollectionView: UICollectionView!
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
     var filteredGames = [Game]()
@@ -29,13 +29,19 @@ class GameListVC: UIViewController {
         }
     }
     var slideArray = [Game]()
-    
-   
-    
     let gameListRequest = GameListRequest(link: "https://api.rawg.io/api/games?key=9718fac0b2cd44f5958788cabc198237")
     var selectedGame: Game?
     var gameDetails: GameDetailsModel?
     var nextPage = ""
+    
+    //for pageControl
+    var timer = Timer()
+    var counter = 0
+    var currentPage = 0 {
+        didSet{
+            pageControl.currentPage = currentPage
+        }
+    }
  
     
     override func viewDidLoad() {
@@ -58,7 +64,26 @@ class GameListVC: UIViewController {
         }
         setupEmptyBackgroundView()
         //slideCollectionView.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeSlide), userInfo: nil, repeats: true)
+    }
+    @objc func changeSlide(){
+        if counter < slideArray.count {
+            let indexPath = IndexPath(item: counter, section: 0)
+            slideCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            pageControl.currentPage = counter
+            currentPage = counter
         
+            counter += 1
+            
+            
+            
+        }else {
+            counter = 0
+            currentPage = counter
+            let indexPath = IndexPath(item: counter, section: 0)
+            slideCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            pageControl.currentPage = counter
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -174,6 +199,11 @@ extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             }
         }
         
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let width = scrollView.frame.width
+        currentPage = Int(scrollView.contentOffset.x / width)
+        counter = currentPage
     }
     
     

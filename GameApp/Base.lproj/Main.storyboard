@@ -111,7 +111,7 @@
                                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUI-kB-PjY">
                                                                     <rect key="frame" x="0.0" y="107.5" width="414" height="20.5"/>
                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FAa-rk-hV3">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="21"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1DH-yb-NY1">
@@ -165,7 +165,7 @@
                                                     <outlet property="delegate" destination="Hnc-Gg-BYX" id="SkW-Nm-wYU"/>
                                                 </connections>
                                             </collectionView>
-                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="AUY-u8-SRR">
+                                            <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="AUY-u8-SRR">
                                                 <rect key="frame" x="129.5" y="200" width="155.5" height="31"/>
                                                 <color key="pageIndicatorTintColor" red="1" green="0.62352941179999999" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="currentPageIndicatorTintColor" red="0.22352941179999999" green="0.43137254899999999" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -297,6 +297,7 @@
                     <tabBarItem key="tabBarItem" title="Games" image="magnifyingglass" catalog="system" id="Ujl-rY-VSK"/>
                     <connections>
                         <outlet property="gameListCollectionView" destination="9Hn-sM-UO4" id="4MR-3S-rS6"/>
+                        <outlet property="pageControl" destination="AUY-u8-SRR" id="g3k-oa-PLS"/>
                         <outlet property="searchBar" destination="Ab5-yH-Y2Z" id="ttp-HO-0rT"/>
                         <outlet property="slideCollectionView" destination="qED-ww-Cqg" id="5EU-ux-4NV"/>
                         <outlet property="slideStack" destination="vwZ-Jc-rDi" id="piY-qy-wMZ"/>
