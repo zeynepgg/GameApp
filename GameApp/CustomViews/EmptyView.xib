@@ -14,25 +14,23 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noData" translatesAutoresizingMaskIntoConstraints="NO" id="D0u-oc-i3j">
-                    <rect key="frame" x="7" y="248" width="400" height="400"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="400" id="HTo-wi-6YN"/>
-                        <constraint firstAttribute="width" constant="400" id="zUI-qA-4D1"/>
-                    </constraints>
-                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no game!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZoV-6t-dDO">
+                    <rect key="frame" x="92.5" y="430" width="229" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <color key="textColor" red="0.80332588699999996" green="1" blue="0.73968169029999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="D0u-oc-i3j" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="NpW-r5-isb"/>
-                <constraint firstItem="D0u-oc-i3j" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="z9S-AB-VMV"/>
+                <constraint firstItem="ZoV-6t-dDO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0jg-Oi-BEX"/>
+                <constraint firstItem="ZoV-6t-dDO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="sEb-I1-ROR"/>
             </constraints>
             <point key="canvasLocation" x="132" y="69"/>
         </view>
     </objects>
     <resources>
-        <image name="noData" width="3000" height="2000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -13,10 +13,22 @@ struct GameModel: Decodable {
 }
 
 struct Game: Decodable, Equatable {
+    static func == (lhs: Game, rhs: Game) -> Bool {
+        return lhs.name == rhs.name
+    }
     var id: Int?
     var slug: String?
     var name: String?
     var background_image: String?
     var rating: Double?
     var released: String?
+    let genres: [Genres]?
+    let short_screenshots: [ShortScreenShots]?
+}
+
+struct Genres: Decodable{
+    let name: String?
+}
+struct ShortScreenShots: Decodable{
+    let image: String?
 }

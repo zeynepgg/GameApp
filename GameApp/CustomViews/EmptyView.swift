@@ -22,8 +22,9 @@ class EmptyView: UIView {
     func commonInit(){
         let bundle = Bundle.init(for: EmptyView.self)
         if let viewToAdd = bundle.loadNibNamed("EmptyView", owner: self, options: nil), let contentView = viewToAdd.first as? UIView {
+            contentView.backgroundColor = UIColor(patternImage: UIImage(named: "arkaplan")!)
             addSubview(contentView)
-            contentView.frame = self.bounds
+            contentView.frame = self.frame
         }
     }
 }

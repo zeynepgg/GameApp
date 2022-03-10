@@ -96,13 +96,13 @@
 		93602A9B27D3D61E00C7EDED /* GameApp */ = {
 			isa = PBXGroup;
 			children = (
+				93602AB327D3D83B00C7EDED /* Controllers */,
 				93C2CE7327D49C7A00F55BC5 /* Service */,
 				93602ABC27D3F2F700C7EDED /* Cells */,
 				93602AB727D3D8B700C7EDED /* CustomViews */,
 				93602AB627D3D89800C7EDED /* Extensions */,
 				93602AB527D3D88D00C7EDED /* Views */,
 				93602AB427D3D84700C7EDED /* Models */,
-				93602AB327D3D83B00C7EDED /* Controllers */,
 				93602A9C27D3D61E00C7EDED /* AppDelegate.swift */,
 				93602A9E27D3D61E00C7EDED /* SceneDelegate.swift */,
 				93602AA227D3D61E00C7EDED /* Main.storyboard */,

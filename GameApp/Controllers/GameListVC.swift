@@ -42,10 +42,27 @@ class GameListVC: UIViewController {
             pageControl.currentPage = currentPage
         }
     }
+    var whichCollectionViewScrolled = "" {
+            willSet{
+                print(newValue)
+            }
+        }
+        var isFirstCollectionViewScrolled = false {
+            willSet{
+                print("First CollectionView Scrolled : (newValue)")
+            }
+        }
+        var isSecondCollectionViewScrolled = false {
+            willSet{
+                print("Second CollectionView Scrolled : (newValue)")
+            }
+        }
  
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        slideCollectionView.tag = 1
+        gameListCollectionView.tag = 2
 
         // Do any additional setup after loading the view.
         slideCollectionView.delegate = self
@@ -64,6 +81,8 @@ class GameListVC: UIViewController {
         }
         setupEmptyBackgroundView()
         //slideCollectionView.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        //gameListCollectionView.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        //gameListCollectionView.contentInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeSlide), userInfo: nil, repeats: true)
     }
     @objc func changeSlide(){
@@ -72,11 +91,7 @@ class GameListVC: UIViewController {
             slideCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             pageControl.currentPage = counter
             currentPage = counter
-        
             counter += 1
-            
-            
-            
         }else {
             counter = 0
             currentPage = counter
@@ -147,6 +162,7 @@ extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameListCell", for: indexPath) as! GameListCell
+            
             if indexPath.row == games.count - 4{
                 getMoreGameData()
             }
@@ -166,8 +182,11 @@ extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         if collectionView == slideCollectionView {
             return CGSize(width: self.view.bounds.width, height: 200)
         }else {
+            /*
             let bounds = collectionView.bounds
-            return CGSize(width: self.view.bounds.width, height: bounds.width / 3)
+            return CGSize(width: self.view.bounds.width, height: bounds.width / 3)*/
+            //let bounds = gameListCollectionView.bounds
+            return CGSize(width: self.view.bounds.width - 10, height: 150 )
         }
         
     }
@@ -201,9 +220,26 @@ extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let width = scrollView.frame.width
-        currentPage = Int(scrollView.contentOffset.x / width)
-        counter = currentPage
+        if let collectionView = scrollView as? UICollectionView {
+                    switch collectionView.tag {
+                    case 1:
+                        whichCollectionViewScrolled = "First"
+                        isFirstCollectionViewScrolled = true
+                        isSecondCollectionViewScrolled = false
+                        let width = scrollView.frame.width
+                        currentPage = Int(scrollView.contentOffset.x / width)
+                        counter = currentPage
+                    case 2:
+                        whichCollectionViewScrolled = "second"
+                        isFirstCollectionViewScrolled = false
+                        isSecondCollectionViewScrolled = true
+                    default:
+                        whichCollectionViewScrolled = "unknown"
+                    }
+                } else{
+                    print("cant cast")
+                }
+            
     }
     
     

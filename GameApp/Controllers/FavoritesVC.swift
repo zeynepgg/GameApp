@@ -29,10 +29,19 @@ class FavoritesVC: UIViewController {
             destinationVC.gameDetails = selectedGame
         }
     }
+    func setupEmptyBackgroundView(){
+        let emptyBackgroundView = EmptyView()
+        collectionView.backgroundView = emptyBackgroundView
+    }
 }
 
 extension FavoritesVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if FavoriteGame.sharedIntance.favoriteGames.count == 0 {
+            setupEmptyBackgroundView()
+        }else {
+            collectionView.backgroundView?.isHidden = true
+        }
         return FavoriteGame.sharedIntance.favoriteGames.count
     }
     
