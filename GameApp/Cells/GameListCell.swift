@@ -18,8 +18,8 @@ class GameListCell: UICollectionViewCell {
     func configure(model: Game) {
         
         let date = model.released!.components(separatedBy: "-")
-        self.gameNameLabel.text = model.name
         self.releaseDateLabel.text = "\(date[2]).\(date[1]).\(date[0])"
+        self.gameNameLabel.text = model.name
         self.ratingLabel.text = "\(model.rating!)"
         self.starLabel.text = String(repeating: " ⭐", count: Int(model.rating!))
         self.gameImg.loadImage(from: model.background_image!)
