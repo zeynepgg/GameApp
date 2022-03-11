@@ -5,6 +5,8 @@
 //  Created by Zeynep Gizem Gürsoy on 9.03.2022.
 //
 
+//MARK: singleton class
+
 import Foundation
 import UIKit
 

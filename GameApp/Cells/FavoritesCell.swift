@@ -10,7 +10,11 @@ import UIKit
 class FavoritesCell: UICollectionViewCell {
     @IBOutlet weak var gameImg: CustomImageView!
     
+    @IBOutlet weak var favDate: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var relasedDate: UILabel!
     @IBOutlet weak var gameNameLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,7 +23,51 @@ class FavoritesCell: UICollectionViewCell {
     func configure(model: GameDetailsModel){
         self.gameNameLabel.text = model.name
         self.gameImg.loadImage(from: model.background_image!)
+        self.ratingLabel.text = String((model.metacritic)!)
+        self.relasedDate.text = model.released
+        self.favDate.text = createDate()
+        self.layer.borderWidth = 0.0
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowRadius = 5.0
+        self.layer.shadowOpacity = 1
+        self.layer.masksToBounds = false
+        self.contentView.layer.cornerRadius = 10
+        self.contentView.clipsToBounds = true
+        
+        
+        
+        
+        //self.gameImg.clipsToBounds = true
+        //self.gameImg.cornerRadius = 10
+        
+    }
+    func createDate() -> String{
+        let today = Date()
+        let date = Calendar.current.component(.day, from: today)
+        let month = Calendar.current.component(.month, from: today)
+        let year = Calendar.current.component(.year, from: today)
+        return "Favorite Date: \(date).\(month).\(year)"
     }
     
 
 }
+
+
+/*
+ 
+ let today = Date()
+ let weekday = Calendar.current.component(.weekday, from: today)
+ let month = Calendar.current.component(.month, from: today)
+ let date = Calendar.current.component(.day, from: today)
+ let year = Calendar.current.component(.year, from: today)
+ print(weekday)
+ print(month)
+ print(date)
+ print(year)
+ print("\(date).\(month).\(year)")
+
+  //print(Calendar.current.weekdaySymbols[weekday-1])
+  //print("\(Calendar.current.shortMonthSymbols[month-1]) \(date)")
+ 
+ */

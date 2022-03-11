@@ -19,33 +19,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="p1v-5w-FxH">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="154" width="414" height="659"/>
+                                <color key="backgroundColor" name="DarkGray"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="V4F-VY-oKT">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="394" height="148"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoritesCell" id="YTg-5l-3HV" customClass="FavoritesCell" customModule="GameApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="10" y="0.0" width="394" height="148"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="os9-SW-lbS">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="148"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="394" height="148"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lnp-H1-tQn">
+                                <rect key="frame" x="0.0" y="44" width="414" height="55"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Games" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npE-Qx-kdO">
+                                        <rect key="frame" x="148" y="17" width="118" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="LightPurple"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="DarkGray"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="8uV-3I-qWY"/>
+                                    <constraint firstItem="npE-Qx-kdO" firstAttribute="centerX" secondItem="Lnp-H1-tQn" secondAttribute="centerX" id="FiG-sk-E7A"/>
+                                    <constraint firstItem="npE-Qx-kdO" firstAttribute="centerY" secondItem="Lnp-H1-tQn" secondAttribute="centerY" id="Z8D-oR-tbS"/>
+                                </constraints>
+                            </view>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="wuf-Kg-Pcu">
+                                <rect key="frame" x="0.0" y="99" width="414" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="vIz-1z-ltf"/>
+                                </constraints>
+                                <color key="barTintColor" name="DarkGray"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tsk-zH-H9w"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="DarkGray"/>
                         <constraints>
+                            <constraint firstItem="wuf-Kg-Pcu" firstAttribute="leading" secondItem="tsk-zH-H9w" secondAttribute="leading" id="2RP-XB-8N9"/>
+                            <constraint firstItem="tsk-zH-H9w" firstAttribute="trailing" secondItem="Lnp-H1-tQn" secondAttribute="trailing" id="4zv-jr-r7d"/>
+                            <constraint firstItem="wuf-Kg-Pcu" firstAttribute="trailing" secondItem="tsk-zH-H9w" secondAttribute="trailing" id="Aus-Uw-FQO"/>
+                            <constraint firstItem="Lnp-H1-tQn" firstAttribute="top" secondItem="tsk-zH-H9w" secondAttribute="top" id="Ekz-kl-8MJ"/>
                             <constraint firstItem="tsk-zH-H9w" firstAttribute="trailing" secondItem="p1v-5w-FxH" secondAttribute="trailing" id="FsS-QX-PiD"/>
-                            <constraint firstItem="p1v-5w-FxH" firstAttribute="top" secondItem="tsk-zH-H9w" secondAttribute="top" id="H01-bh-Li3"/>
+                            <constraint firstItem="p1v-5w-FxH" firstAttribute="top" secondItem="wuf-Kg-Pcu" secondAttribute="bottom" id="Q5Y-9T-CEX"/>
                             <constraint firstItem="p1v-5w-FxH" firstAttribute="leading" secondItem="tsk-zH-H9w" secondAttribute="leading" id="THy-42-EcR"/>
+                            <constraint firstItem="Lnp-H1-tQn" firstAttribute="leading" secondItem="tsk-zH-H9w" secondAttribute="leading" id="TvB-FT-Suy"/>
                             <constraint firstItem="tsk-zH-H9w" firstAttribute="bottom" secondItem="p1v-5w-FxH" secondAttribute="bottom" id="Z9g-7S-O1N"/>
+                            <constraint firstItem="wuf-Kg-Pcu" firstAttribute="top" secondItem="Lnp-H1-tQn" secondAttribute="bottom" id="hpA-un-CRr"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" id="OtA-8z-X7K"/>
@@ -56,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDE-2k-7CL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-546" y="179"/>
+            <point key="canvasLocation" x="-546.37681159420299" y="178.79464285714286"/>
         </scene>
         <!--Games-->
         <scene sceneID="WPU-JE-aJE">
@@ -514,11 +551,17 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="02a-q3-xeL"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="MediumGray"/>
                         <constraints>
                             <constraint firstItem="0TW-zf-iXH" firstAttribute="top" secondItem="02a-q3-xeL" secondAttribute="top" constant="15" id="84O-qU-6rI"/>
                             <constraint firstItem="cRm-Xc-pQl" firstAttribute="top" secondItem="02a-q3-xeL" secondAttribute="top" constant="15" id="8N8-9r-hFF"/>
@@ -572,7 +615,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Tok-hT-PX0"/>
+        <segue reference="NmA-sE-O5o"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>

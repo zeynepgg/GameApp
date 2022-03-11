@@ -82,7 +82,7 @@ class GameListVC: UIViewController {
         setupEmptyBackgroundView()
         //slideCollectionView.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         //gameListCollectionView.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        //gameListCollectionView.contentInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+        gameListCollectionView.contentInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeSlide), userInfo: nil, repeats: true)
     }
     @objc func changeSlide(){

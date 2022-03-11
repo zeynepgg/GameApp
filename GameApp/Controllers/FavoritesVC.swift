@@ -16,7 +16,7 @@ class FavoritesVC: UIViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
         collectionView.register(UINib(nibName: "FavoritesCell", bundle: nil), forCellWithReuseIdentifier: "FavoritesCell")
 
         // Do any additional setup after loading the view.
@@ -53,12 +53,13 @@ extension FavoritesVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let bounds = collectionView.bounds
-        return CGSize(width: bounds.width - 10, height: bounds.height / 6)
+        return CGSize(width: self.view.bounds.width - 10, height: 150 )
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedGame = FavoriteGame.sharedIntance.favoriteGameImages[indexPath.row]
         selectedGameDetails = FavoriteGame.sharedIntance.favoriteGames[indexPath.row]
+        
+        
         self.performSegue(withIdentifier: "goToGameDetails", sender: self)
     }
     
