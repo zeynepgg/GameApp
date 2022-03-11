@@ -33,6 +33,7 @@
 		93C2CE7D27D5363700F55BC5 /* GameListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C2CE7C27D5363700F55BC5 /* GameListCell.swift */; };
 		93C2CE8027D548D500F55BC5 /* UIImageView Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C2CE7F27D548D500F55BC5 /* UIImageView Extension.swift */; };
 		93C2CE8227D6356A00F55BC5 /* GameDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C2CE8127D6356A00F55BC5 /* GameDetailsVC.swift */; };
+		93D18E6527DADB800074AF3B /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D18E6427DADB800074AF3B /* PhotoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		93C2CE7C27D5363700F55BC5 /* GameListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListCell.swift; sourceTree = "<group>"; };
 		93C2CE7F27D548D500F55BC5 /* UIImageView Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView Extension.swift"; sourceTree = "<group>"; };
 		93C2CE8127D6356A00F55BC5 /* GameDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsVC.swift; sourceTree = "<group>"; };
+		93D18E6427DADB800074AF3B /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				93C2CE7C27D5363700F55BC5 /* GameListCell.swift */,
 				93AC92CB27D8F96E0099907F /* FavoritesCell.swift */,
 				93AC92CC27D8F96E0099907F /* FavoritesCell.xib */,
+				93D18E6427DADB800074AF3B /* PhotoCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				93AC92C627D6C4B30099907F /* EmptyView.swift in Sources */,
 				93602ABB27D3E7DB00C7EDED /* FavoritesVC.swift in Sources */,
 				93AC92CD27D8F96E0099907F /* FavoritesCell.swift in Sources */,
+				93D18E6527DADB800074AF3B /* PhotoCell.swift in Sources */,
 				93602A9F27D3D61E00C7EDED /* SceneDelegate.swift in Sources */,
 				93AC92C827D7BFA20099907F /* GameImageView.swift in Sources */,
 				93AC92D227D932BB0099907F /* UIView + Extension.swift in Sources */,

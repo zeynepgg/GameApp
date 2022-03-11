@@ -10,7 +10,8 @@ import UIKit
 class FavoritesVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var selectedGame: GameDetailsModel?
+    var selectedGameDetails: GameDetailsModel?
+    var selectedGame: Game?
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -26,7 +27,8 @@ class FavoritesVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToGameDetails" {
             let destinationVC = segue.destination as! GameDetailsVC
-            destinationVC.gameDetails = selectedGame
+            destinationVC.gameDetails = selectedGameDetails
+            destinationVC.selectedGame = selectedGame
         }
     }
     func setupEmptyBackgroundView(){
@@ -55,7 +57,8 @@ extension FavoritesVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         return CGSize(width: bounds.width - 10, height: bounds.height / 6)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedGame = FavoriteGame.sharedIntance.favoriteGames[indexPath.row]
+        selectedGame = FavoriteGame.sharedIntance.favoriteGameImages[indexPath.row]
+        selectedGameDetails = FavoriteGame.sharedIntance.favoriteGames[indexPath.row]
         self.performSegue(withIdentifier: "goToGameDetails", sender: self)
     }
     
