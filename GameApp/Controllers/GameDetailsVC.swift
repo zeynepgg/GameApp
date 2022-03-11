@@ -24,6 +24,7 @@ class GameDetailsVC: UIViewController {
     var selectedGame: Game?
     var allGenre = ""
     var photos = [String]()
+    var text = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +37,9 @@ class GameDetailsVC: UIViewController {
         gameDescriptionLabel.text = gameDetails?.description_raw
         let date = gameDetails?.released!.components(separatedBy: "-")
         dateLabel.text = "\(date![2]).\(date![1]).\(date![0])"
-        metaCriticLabel.text = String((gameDetails?.metacritic)!)
+        text = String((gameDetails?.metacritic)!)
+        metaCriticLabel.text = text
+        
         gameNameLabel.text = gameDetails?.name
         gameImg.loadImage(from: (gameDetails?.background_image)!)
         
@@ -52,8 +55,15 @@ class GameDetailsVC: UIViewController {
         }else{
             favoriteButton.setImage(UIImage.init(systemName: "suit.heart"), for: .normal)
         }
+        
 
         // Do any additional setup after loading the view.
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToSlide" {
+            let destinationVC = segue.destination as! PhotoSlideVC
+            destinationVC.selectedGame = selectedGame
+        }
     }
     
     
@@ -91,5 +101,8 @@ extension GameDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource, U
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return CGSize(width: 150, height: 150)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "goToSlide", sender: self)
     }
 }

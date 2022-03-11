@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93536CE227DBDB9A00D30582 /* PhotoSlideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93536CE127DBDB9A00D30582 /* PhotoSlideVC.swift */; };
+		93536CE627DBE1D100D30582 /* SlidePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93536CE527DBE1D100D30582 /* SlidePhotoCell.swift */; };
 		93602A9D27D3D61E00C7EDED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93602A9C27D3D61E00C7EDED /* AppDelegate.swift */; };
 		93602A9F27D3D61E00C7EDED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93602A9E27D3D61E00C7EDED /* SceneDelegate.swift */; };
 		93602AA427D3D61E00C7EDED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93602AA227D3D61E00C7EDED /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93536CE127DBDB9A00D30582 /* PhotoSlideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSlideVC.swift; sourceTree = "<group>"; };
+		93536CE527DBE1D100D30582 /* SlidePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidePhotoCell.swift; sourceTree = "<group>"; };
 		93602A9927D3D61E00C7EDED /* GameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93602A9C27D3D61E00C7EDED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93602A9E27D3D61E00C7EDED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				93602AB827D3E7B800C7EDED /* GameListVC.swift */,
 				93C2CE8127D6356A00F55BC5 /* GameDetailsVC.swift */,
 				93602ABA27D3E7DB00C7EDED /* FavoritesVC.swift */,
+				93536CE127DBDB9A00D30582 /* PhotoSlideVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				93AC92CB27D8F96E0099907F /* FavoritesCell.swift */,
 				93AC92CC27D8F96E0099907F /* FavoritesCell.xib */,
 				93D18E6427DADB800074AF3B /* PhotoCell.swift */,
+				93536CE527DBE1D100D30582 /* SlidePhotoCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -260,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93602A9D27D3D61E00C7EDED /* AppDelegate.swift in Sources */,
+				93536CE227DBDB9A00D30582 /* PhotoSlideVC.swift in Sources */,
 				93C2CE8027D548D500F55BC5 /* UIImageView Extension.swift in Sources */,
 				93602AC227D40A8C00C7EDED /* GameModel.swift in Sources */,
 				93AC92C627D6C4B30099907F /* EmptyView.swift in Sources */,
@@ -276,6 +283,7 @@
 				93602ABE27D3F34900C7EDED /* GameSlideCell.swift in Sources */,
 				93C2CE7D27D5363700F55BC5 /* GameListCell.swift in Sources */,
 				93AC92C227D644BC0099907F /* GameDetailsModel.swift in Sources */,
+				93536CE627DBE1D100D30582 /* SlidePhotoCell.swift in Sources */,
 				93AC92D427D9330B0099907F /* UIColor Extension.swift in Sources */,
 				93AC92BD27D639F60099907F /* GameDetailsRequest.swift in Sources */,
 				93AC92C027D63F3D0099907F /* NotificationExtension.swift in Sources */,

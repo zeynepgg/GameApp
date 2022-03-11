@@ -587,11 +587,125 @@
                         <outlet property="gameNameLabel" destination="Ugu-XB-gxC" id="nvR-hi-g54"/>
                         <outlet property="genreLabel" destination="s9r-u6-hBx" id="pjJ-Df-sfS"/>
                         <outlet property="metaCriticLabel" destination="5e3-9p-AlD" id="f2k-oT-hCS"/>
+                        <segue destination="m2N-Dk-QE8" kind="presentation" identifier="goToSlide" modalPresentationStyle="overFullScreen" id="HW1-Ye-Irl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3j-gF-nEn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="353.62318840579712" y="-658.25892857142856"/>
+        </scene>
+        <!--Photo SlideVC-->
+        <scene sceneID="Ada-FT-I9T">
+            <objects>
+                <viewController storyboardIdentifier="PhotoSlideVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m2N-Dk-QE8" customClass="PhotoSlideVC" customModule="GameApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3cg-jF-Gax">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qM-x0-wYy">
+                                <rect key="frame" x="0.0" y="298" width="414" height="300"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dgL-7S-gAP">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                        <color key="backgroundColor" name="DarkGray"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="iWa-pe-JhM">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SlidePhotoCell" id="XW7-Uy-Gqs" customClass="SlidePhotoCell" customModule="GameApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Xfp-sc-0MT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vOu-2U-uak" customClass="CustomImageView" customModule="GameApp" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="vOu-2U-uak" firstAttribute="top" secondItem="Xfp-sc-0MT" secondAttribute="top" id="EeK-bm-lkU"/>
+                                                        <constraint firstItem="vOu-2U-uak" firstAttribute="centerX" secondItem="Xfp-sc-0MT" secondAttribute="centerX" id="Jmi-wK-GoC"/>
+                                                        <constraint firstAttribute="trailing" secondItem="vOu-2U-uak" secondAttribute="trailing" id="RRz-aR-Suq"/>
+                                                        <constraint firstItem="vOu-2U-uak" firstAttribute="centerY" secondItem="Xfp-sc-0MT" secondAttribute="centerY" id="cEz-PJ-Bbx"/>
+                                                        <constraint firstAttribute="bottom" secondItem="vOu-2U-uak" secondAttribute="bottom" id="fu2-Yu-Gjk"/>
+                                                        <constraint firstItem="vOu-2U-uak" firstAttribute="leading" secondItem="Xfp-sc-0MT" secondAttribute="leading" id="gDY-It-6wT"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="414" height="128"/>
+                                                <connections>
+                                                    <outlet property="photo" destination="vOu-2U-uak" id="GIR-wT-Q9T"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="dgL-7S-gAP" secondAttribute="bottom" id="1wZ-Ye-u5r"/>
+                                    <constraint firstItem="dgL-7S-gAP" firstAttribute="top" secondItem="0qM-x0-wYy" secondAttribute="top" id="KvX-Ls-96U"/>
+                                    <constraint firstAttribute="trailing" secondItem="dgL-7S-gAP" secondAttribute="trailing" id="qvP-xu-QN2"/>
+                                    <constraint firstAttribute="height" constant="300" id="sZW-WY-gGh"/>
+                                    <constraint firstItem="dgL-7S-gAP" firstAttribute="leading" secondItem="0qM-x0-wYy" secondAttribute="leading" id="skq-zm-hBl"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czr-yw-SE8">
+                                <rect key="frame" x="358" y="318" width="41" height="31"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="cancelClicked:" destination="m2N-Dk-QE8" eventType="touchUpInside" id="pMa-JO-Mba"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMF-Wi-VSv">
+                                <rect key="frame" x="357" y="547" width="42" height="31"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.forward.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="rightClicked:" destination="m2N-Dk-QE8" eventType="touchUpInside" id="l4P-hF-m6q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBZ-8H-gpz">
+                                <rect key="frame" x="15" y="547" width="42" height="31"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.backward.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="leftClicked:" destination="m2N-Dk-QE8" eventType="touchUpInside" id="DMn-k8-3yn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QXq-7D-slQ"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.8764257367873034" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QXq-7D-slQ" firstAttribute="trailing" secondItem="KMF-Wi-VSv" secondAttribute="trailing" constant="15" id="2wq-1G-ykD"/>
+                            <constraint firstItem="0qM-x0-wYy" firstAttribute="bottom" secondItem="KMF-Wi-VSv" secondAttribute="bottom" constant="20" id="9Sl-hC-F6K"/>
+                            <constraint firstItem="0qM-x0-wYy" firstAttribute="leading" secondItem="QXq-7D-slQ" secondAttribute="leading" id="FS4-ab-UlY"/>
+                            <constraint firstItem="QXq-7D-slQ" firstAttribute="trailing" secondItem="Czr-yw-SE8" secondAttribute="trailing" constant="15" id="JVr-cJ-abx"/>
+                            <constraint firstItem="0qM-x0-wYy" firstAttribute="centerX" secondItem="3cg-jF-Gax" secondAttribute="centerX" id="Nmh-GH-w16"/>
+                            <constraint firstItem="0qM-x0-wYy" firstAttribute="centerY" secondItem="3cg-jF-Gax" secondAttribute="centerY" id="R8W-L2-kmU"/>
+                            <constraint firstItem="0qM-x0-wYy" firstAttribute="bottom" secondItem="yBZ-8H-gpz" secondAttribute="bottom" constant="20" id="U55-5q-9lm"/>
+                            <constraint firstItem="Czr-yw-SE8" firstAttribute="top" secondItem="0qM-x0-wYy" secondAttribute="top" constant="20" id="UrZ-C6-cGc"/>
+                            <constraint firstItem="yBZ-8H-gpz" firstAttribute="leading" secondItem="QXq-7D-slQ" secondAttribute="leading" constant="15" id="Zu0-9q-ziy"/>
+                            <constraint firstItem="QXq-7D-slQ" firstAttribute="trailing" secondItem="0qM-x0-wYy" secondAttribute="trailing" id="iLN-Q8-OBm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="RR2-TO-aYV"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="Czr-yw-SE8" id="Wsd-z7-NbI"/>
+                        <outlet property="collectionView" destination="dgL-7S-gAP" id="RAx-PZ-iZX"/>
+                        <outlet property="leftButton" destination="yBZ-8H-gpz" id="vuo-fG-PJ6"/>
+                        <outlet property="rightButton" destination="KMF-Wi-VSv" id="dcQ-i7-hnU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fqP-yL-i9p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1234.7826086956522" y="-692.41071428571422"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4GL-MT-CPl">
@@ -615,14 +729,17 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NmA-sE-O5o"/>
+        <segue reference="Tok-hT-PX0"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrowtriangle.backward.fill" catalog="system" width="128" height="113"/>
+        <image name="arrowtriangle.forward.fill" catalog="system" width="128" height="113"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="deneme" width="1920" height="620"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="DarkGray">
             <color red="0.13699999451637268" green="0.13699999451637268" blue="0.14900000393390656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -637,6 +754,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
