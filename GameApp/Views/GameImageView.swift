@@ -20,7 +20,7 @@ class GameImageView: UIImageView {
         
         DispatchQueue.global().async {
             if let imageData = try? Data(contentsOf: url) {
-
+                
                 if let loadedImage = UIImage(data: imageData) {
                     DispatchQueue.main.async { [weak self] in
                         if self!.lastURL == URLAddress {
@@ -28,12 +28,12 @@ class GameImageView: UIImageView {
                         }else{
                             return
                         }
-                         
+                        
                     }
-                       
+                    
                 }
             }
         }
     }
-
+    
 }

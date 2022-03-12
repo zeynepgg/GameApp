@@ -9,7 +9,6 @@ import UIKit
 
 class SlidePhotoCell: UICollectionViewCell {
     
-   
     @IBOutlet weak var photo: CustomImageView!
     
     func configure(img: String){

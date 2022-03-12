@@ -8,7 +8,7 @@
 import UIKit
 
 class GameListVC: UIViewController {
-
+    
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var slideStack: UIStackView!
     @IBOutlet weak var gameListCollectionView: UICollectionView!
@@ -42,19 +42,16 @@ class GameListVC: UIViewController {
             pageControl.currentPage = currentPage
         }
     }
- 
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        slideCollectionView.tag = 1
-        gameListCollectionView.tag = 2
-
-        // Do any additional setup after loading the view.
         slideCollectionView.delegate = self
         slideCollectionView.dataSource = self
         
         gameListCollectionView.delegate = self
         gameListCollectionView.dataSource = self
+        gameListCollectionView.contentInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
         
         searchBar.searchTextField.textColor = .white
         searchBar.searchTextField.tintColor = .white
@@ -68,9 +65,7 @@ class GameListVC: UIViewController {
             }
         }
         setupEmptyBackgroundView()
-        //slideCollectionView.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        //gameListCollectionView.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        gameListCollectionView.contentInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+        
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeSlide), userInfo: nil, repeats: true)
     }
     @objc func changeSlide(){
@@ -111,14 +106,11 @@ class GameListVC: UIViewController {
             }
         }
     }
-
-
 }
 
 
 extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         
         if collectionView == slideCollectionView {
             return slideArray.count
@@ -138,7 +130,7 @@ extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             }
             
         }
-       
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -159,8 +151,6 @@ extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             }else{
                 cell.configure(model: games[indexPath.row + 3])
             }
-           
-            
             return cell
         }
         
@@ -170,13 +160,8 @@ extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         if collectionView == slideCollectionView {
             return CGSize(width: self.view.bounds.width, height: 200)
         }else {
-            /*
-            let bounds = collectionView.bounds
-            return CGSize(width: self.view.bounds.width, height: bounds.width / 3)*/
-            //let bounds = gameListCollectionView.bounds
             return CGSize(width: self.view.bounds.width - 10, height: 150 )
         }
-        
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == slideCollectionView {
@@ -187,37 +172,29 @@ extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             }else{
                 selectedGame = games[indexPath.row+3]
             }
-            
         }
         
         let gameDetailsRequest = GameDetailsRequest(slug: (selectedGame?.slug)!)
         gameDetailsRequest.getGameDetails{ result in
             do {
-                print("Buradayım")
                 self.gameDetails = try result.get()
                 DispatchQueue.main.async {
-                    /*let destinationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameDetailsVC" )
-                    self.present(destinationVC, animated: true, completion: nil)*/
                     self.performSegue(withIdentifier: "goToGameDetails", sender: self)
                 }
-                
             }catch let error {
                 print(error)
             }
         }
         
     }
-   
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == gameListCollectionView{
             let width = scrollView.frame.width
             currentPage = Int(scrollView.contentOffset.x / width)
             counter = currentPage
-                }
-            
+        }
     }
-    
-    
 }
 
 extension GameListVC: UISearchBarDelegate {
@@ -232,12 +209,12 @@ extension GameListVC: UISearchBarDelegate {
             gameListCollectionView.reloadData()
         }else {
             filteredGames = games.filter({ (gameInfo:Game) -> Bool in
-                        return gameInfo.name!.lowercased().contains(searchText.lowercased())
-                    })
-                
+                return gameInfo.name!.lowercased().contains(searchText.lowercased())
+            })
+            
             isFiltering = true
             gameListCollectionView.reloadData()
-            }
+        }
         
     }
 }

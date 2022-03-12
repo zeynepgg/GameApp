@@ -28,7 +28,6 @@ class FavoritesVC: UIViewController {
         searchBar.searchTextField.textColor = .white
         searchBar.searchTextField.tintColor = .white
 
-        // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
@@ -59,21 +58,17 @@ extension FavoritesVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
                 
         }else{
             if FavoriteGame.sharedIntance.favoriteGames.count == 0 {
-                collectionView.backgroundView?.isHidden = false
+                collectionView.backgroundView?.isHidden = true
             }else{
                 collectionView.backgroundView?.isHidden = true
             }
             
             return FavoriteGame.sharedIntance.favoriteGames.count
         }
-            
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesCell", for: indexPath) as! FavoritesCell
-        
         
         if isFiltering{
             cell.configure(model: filteredGames[indexPath.row])
@@ -94,14 +89,8 @@ extension FavoritesVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             selectedGame = FavoriteGame.sharedIntance.favoriteGameImages[indexPath.row]
             selectedGameDetails = FavoriteGame.sharedIntance.favoriteGames[indexPath.row]
         }
-        
-
-        
-        
         self.performSegue(withIdentifier: "goToGameDetails", sender: self)
     }
-    
-    
 }
 
 extension FavoritesVC: UISearchBarDelegate {

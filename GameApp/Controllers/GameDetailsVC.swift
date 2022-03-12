@@ -8,7 +8,7 @@
 import UIKit
 
 class GameDetailsVC: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -18,14 +18,12 @@ class GameDetailsVC: UIViewController {
     @IBOutlet weak var gameDescriptionLabel: UILabel!
     @IBOutlet weak var gameImg: CustomImageView!
     
-    //var request: GameDetailsRequest?
-    
     var gameDetails: GameDetailsModel?
     var selectedGame: Game?
     var allGenre = ""
     var photos = [String]()
     var text = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,26 +33,22 @@ class GameDetailsVC: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        configure()
+        changeFavImg()
+        
+    }
+    func configure(){
         gameDescriptionLabel.text = gameDetails?.description_raw
-        let date = gameDetails?.released!.components(separatedBy: "-")
-        dateLabel.text = "Release Date: \(date![2]).\(date![1]).\(date![0])"
+        dateLabel.changeDateFormat(str: (gameDetails?.released)!)
         text = String((gameDetails?.metacritic) ?? 0)
         metaCriticLabel.text = "Metacritic: " + text
-        
         gameNameLabel.text = gameDetails?.name
         gameImg.loadImage(from: (gameDetails?.background_image)!)
-        
-        
         let genres = (gameDetails?.genres)!
         for genre in genres{
             allGenre += " \(genre.name!)"
         }
         genreLabel.text = "Genre: " + allGenre
-        
-        changeFavImg()
-        
-
-        // Do any additional setup after loading the view.
     }
     func changeFavImg(){
         if FavoriteGame.sharedIntance.favoriteGames.contains(gameDetails!){
@@ -69,7 +63,6 @@ class GameDetailsVC: UIViewController {
         favoriteButton.setImage(UIImage.init(systemName: "suit.heart.fill"), for: .normal)
     }
     func deleteFromFavorite(){
-       
         let tempArray = FavoriteGame.sharedIntance.favoriteGames.filter{ $0 != gameDetails}
         FavoriteGame.sharedIntance.favoriteGames = tempArray
         favoriteButton.setImage(UIImage.init(systemName: "suit.heart"), for: .normal)
@@ -86,21 +79,17 @@ class GameDetailsVC: UIViewController {
     
     
     @IBAction func favoriteButtonClicked(_ sender: UIButton) {
-       
+        
         if FavoriteGame.sharedIntance.favoriteGames.contains(gameDetails!){
             self.performSegue(withIdentifier: "goToPopUp", sender: self)
         }else {
             addToFavorite()
         }
-        
-        
     }
     
     @IBAction func backButtonClicked(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-
 }
 
 extension GameDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -114,7 +103,7 @@ extension GameDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource, U
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 150, height: 150)
+        return CGSize(width: 150, height: 150)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "goToSlide", sender: self)
@@ -122,16 +111,11 @@ extension GameDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource, U
 }
 
 extension GameDetailsVC: FavoriteDelegate {
-    func sendYes(choose: Bool) {
+    func sendChoose(choose: Bool) {
         if choose == true{
             deleteFromFavorite()
-            print("silindi")
-            print(choose)
         }else{
-            print("silinmedi")
             return
         }
     }
-    
-    
 }

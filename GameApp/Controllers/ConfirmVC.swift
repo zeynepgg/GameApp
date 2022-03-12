@@ -8,7 +8,7 @@
 import UIKit
 
 protocol FavoriteDelegate {
-    func sendYes(choose: Bool)
+    func sendChoose(choose: Bool)
 }
 class ConfirmVC: UIViewController {
     
@@ -18,19 +18,16 @@ class ConfirmVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-    
-    
     @IBAction func yesButtonClicked(_ sender: UIButton) {
         choose = true
-        self.delegate?.sendYes(choose: choose)
+        self.delegate?.sendChoose(choose: choose)
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonClicked(_ sender: UIButton) {
         choose = false
-        self.delegate?.sendYes(choose: choose)
+        self.delegate?.sendChoose(choose: choose)
         self.dismiss(animated: true, completion: nil)
     }
 }

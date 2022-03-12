@@ -35,12 +35,6 @@ class FavoritesCell: UICollectionViewCell {
         self.contentView.layer.cornerRadius = 10
         self.contentView.clipsToBounds = true
         
-        
-        
-        
-        //self.gameImg.clipsToBounds = true
-        //self.gameImg.cornerRadius = 10
-        
     }
     func createDate() -> String{
         let today = Date()
@@ -53,21 +47,3 @@ class FavoritesCell: UICollectionViewCell {
 
 }
 
-
-/*
- 
- let today = Date()
- let weekday = Calendar.current.component(.weekday, from: today)
- let month = Calendar.current.component(.month, from: today)
- let date = Calendar.current.component(.day, from: today)
- let year = Calendar.current.component(.year, from: today)
- print(weekday)
- print(month)
- print(date)
- print(year)
- print("\(date).\(month).\(year)")
-
-  //print(Calendar.current.weekdaySymbols[weekday-1])
-  //print("\(Calendar.current.shortMonthSymbols[month-1]) \(date)")
- 
- */

@@ -13,17 +13,17 @@ class PhotoSlideVC: UIViewController {
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var selectedGame: Game?
     var photos = [String]()
     
     var currentPage = 0 {
         didSet {
             if currentPage == photos.count - 1 {
-                //son sayfa
+                //if last page
                 rightButton.isHidden = true
                 leftButton.isHidden = false
             }else {
-                //son sayfa değil
                 if currentPage == 0 {
                     rightButton.isHidden = false
                     leftButton.isHidden = true
@@ -40,25 +40,13 @@ class PhotoSlideVC: UIViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        //collectionView.contentInset = UIEdgeInsets(top: 20, left:0, bottom: 20, right:0)
-        // Do any additional setup after loading the view.
+       
         for ss in (selectedGame?.short_screenshots)!{
             photos.append(ss.image!)
         }
         leftButton.isHidden = true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     @IBAction func leftClicked(_ sender: UIButton) {
         currentPage -= 1
         let indexPath = IndexPath(item: currentPage, section: 0)

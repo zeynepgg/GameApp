@@ -22,13 +22,8 @@ struct Game: Decodable, Equatable {
     var background_image: String?
     var rating: Double?
     var released: String?
-    //var genres: [Genres]?
     let short_screenshots: [ShortScreenShots]?
 }
-/*
-struct Genres: Decodable{
-    let name: String?
-}*/
 struct ShortScreenShots: Decodable{
     let image: String?
 }

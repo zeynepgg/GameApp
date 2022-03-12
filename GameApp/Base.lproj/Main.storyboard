@@ -108,23 +108,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dt7-dV-x8B">
-                                <rect key="frame" x="30" y="384" width="354" height="128"/>
+                                <rect key="frame" x="30" y="393" width="354" height="110"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to remove game from favorite?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YS-B2-Mky">
-                                        <rect key="frame" x="10" y="10" width="334" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to remove the game from favorite?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YS-B2-Mky">
+                                        <rect key="frame" x="10" y="10" width="334" height="41"/>
                                         <color key="tintColor" name="DarkGray"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="puh-cP-pyp">
-                                        <rect key="frame" x="15" y="45.5" width="324" height="31"/>
+                                        <rect key="frame" x="15" y="66" width="324" height="31"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mxx-HD-ceW">
                                                 <rect key="frame" x="0.0" y="0.0" width="152" height="31"/>
                                                 <color key="tintColor" name="DarkGray"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Cancel">
+                                                            <attributes>
+                                                                <font key="NSFont" size="12" name="Helvetica-Bold"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <action selector="cancelButtonClicked:" destination="Ba7-ea-lJE" eventType="touchUpInside" id="GKv-H4-M9a"/>
                                                 </connections>
@@ -147,11 +155,11 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" name="LightPurple"/>
+                                <color key="backgroundColor" name="DarkPurple"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="puh-cP-pyp" secondAttribute="trailing" constant="15" id="8UF-PF-Rr2"/>
                                     <constraint firstItem="puh-cP-pyp" firstAttribute="top" secondItem="8YS-B2-Mky" secondAttribute="bottom" constant="15" id="LZb-l6-iX1"/>
-                                    <constraint firstAttribute="height" constant="128" id="YYI-7g-Ign"/>
+                                    <constraint firstAttribute="height" constant="110" id="YYI-7g-Ign"/>
                                     <constraint firstItem="puh-cP-pyp" firstAttribute="leading" secondItem="dt7-dV-x8B" secondAttribute="leading" constant="15" id="cpQ-4J-4Wl"/>
                                     <constraint firstItem="8YS-B2-Mky" firstAttribute="leading" secondItem="dt7-dV-x8B" secondAttribute="leading" constant="10" id="jgF-Dk-JET"/>
                                     <constraint firstAttribute="trailing" secondItem="8YS-B2-Mky" secondAttribute="trailing" constant="10" id="mvw-qV-HUl"/>
@@ -356,16 +364,16 @@
                                                             </constraints>
                                                         </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Ax-mb-nnd">
-                                                            <rect key="frame" x="187" y="35.5" width="187" height="77"/>
+                                                            <rect key="frame" x="187" y="34" width="187" height="80"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Of Game" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fta-G4-Gpe">
-                                                                    <rect key="frame" x="41" y="0.0" width="105" height="19"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <rect key="frame" x="33.5" y="0.0" width="120.5" height="22"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date: 2010" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3O-ib-Xvc">
-                                                                    <rect key="frame" x="27.5" y="27" width="132" height="21"/>
+                                                                    <rect key="frame" x="27.5" y="30" width="132" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="x0n-BG-H10"/>
                                                                     </constraints>
@@ -374,7 +382,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6T7-8b-lRd">
-                                                                    <rect key="frame" x="34.5" y="56" width="118" height="21"/>
+                                                                    <rect key="frame" x="34.5" y="59" width="118" height="21"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="star" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhQ-VB-uuY">
                                                                             <rect key="frame" x="0.0" y="0.0" width="26.5" height="21"/>
@@ -463,7 +471,7 @@
                             <constraint firstItem="Ab5-yH-Y2Z" firstAttribute="leading" secondItem="rpb-Iu-wKf" secondAttribute="leading" id="oW4-ao-poT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="Ujl-rY-VSK"/>
+                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="Ujl-rY-VSK"/>
                     <connections>
                         <outlet property="gameListCollectionView" destination="9Hn-sM-UO4" id="4MR-3S-rS6"/>
                         <outlet property="pageControl" destination="AUY-u8-SRR" id="g3k-oa-PLS"/>
@@ -536,8 +544,8 @@
                                         <rect key="frame" x="20" y="10" width="374" height="113"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugu-XB-gxC">
-                                                <rect key="frame" x="0.0" y="0.0" width="123.5" height="27.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="27.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -841,7 +849,7 @@
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="deneme" width="1920" height="620"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="DarkGray">
