@@ -409,17 +409,21 @@
                                     <constraint firstItem="ZuZ-kC-wHE" firstAttribute="top" secondItem="W6Q-JN-bxU" secondAttribute="top" id="deT-2l-ESF"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TW-zf-iXH">
-                                <rect key="frame" x="10" y="59" width="36" height="31"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TW-zf-iXH">
+                                <rect key="frame" x="10" y="59" width="31" height="31"/>
+                                <color key="tintColor" name="DarkPurple"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" image="chevron.backward" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="tinted" image="chevron.backward" catalog="system" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="backButtonClicked:" destination="E8D-dY-Sbf" eventType="touchUpInside" id="Qsn-IT-ffi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRm-Xc-pQl">
-                                <rect key="frame" x="363" y="59" width="31" height="31"/>
+                                <rect key="frame" x="373" y="59" width="31" height="31"/>
                                 <color key="tintColor" name="DarkPurple"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" image="suit.heart" catalog="system" cornerStyle="capsule">
@@ -437,7 +441,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Bo-1G-Hro">
                                         <rect key="frame" x="20" y="10" width="374" height="113"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugu-XB-gxC">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugu-XB-gxC">
                                                 <rect key="frame" x="0.0" y="0.0" width="123.5" height="27.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -573,7 +577,7 @@
                             <constraint firstItem="dQe-Qa-w5k" firstAttribute="top" secondItem="0TW-zf-iXH" secondAttribute="bottom" constant="190" id="aFx-hd-DdX"/>
                             <constraint firstItem="dQe-Qa-w5k" firstAttribute="leading" secondItem="02a-q3-xeL" secondAttribute="leading" id="hwp-9h-uv7"/>
                             <constraint firstItem="W6Q-JN-bxU" firstAttribute="leading" secondItem="02a-q3-xeL" secondAttribute="leading" id="qPW-9p-aYB"/>
-                            <constraint firstItem="02a-q3-xeL" firstAttribute="trailing" secondItem="cRm-Xc-pQl" secondAttribute="trailing" constant="20" id="ugv-di-3qF"/>
+                            <constraint firstItem="02a-q3-xeL" firstAttribute="trailing" secondItem="cRm-Xc-pQl" secondAttribute="trailing" constant="10" id="ugv-di-3qF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PDn-aw-UEK"/>

@@ -36,9 +36,9 @@ class GameDetailsVC: UIViewController {
         
         gameDescriptionLabel.text = gameDetails?.description_raw
         let date = gameDetails?.released!.components(separatedBy: "-")
-        dateLabel.text = "\(date![2]).\(date![1]).\(date![0])"
-        text = String((gameDetails?.metacritic)!)
-        metaCriticLabel.text = text
+        dateLabel.text = "Release Date: \(date![2]).\(date![1]).\(date![0])"
+        text = String((gameDetails?.metacritic) ?? 0)
+        metaCriticLabel.text = "Meta Critic: " + text
         
         gameNameLabel.text = gameDetails?.name
         gameImg.loadImage(from: (gameDetails?.background_image)!)
@@ -48,7 +48,7 @@ class GameDetailsVC: UIViewController {
         for genre in genres{
             allGenre += " \(genre.name!)"
         }
-        genreLabel.text = allGenre
+        genreLabel.text = "Genre: " + allGenre
         
         if FavoriteGame.sharedIntance.favoriteGames.contains(gameDetails!){
             favoriteButton.setImage(UIImage.init(systemName: "suit.heart.fill"), for: .normal)

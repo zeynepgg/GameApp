@@ -219,6 +219,7 @@ extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         }
         
     }
+    //MARK: HALLETTTT!!!!!
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if let collectionView = scrollView as? UICollectionView {
                     switch collectionView.tag {
@@ -270,17 +271,6 @@ extension GameListVC: UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
         if position > gameListCollectionView.contentSize.height - 10 - scrollView.frame.size.height {
-           /*
-            let gameListRequest = GameListRequest(link: nextPage)
-            gameListRequest.getGames { result in
-                do {
-                    self.games += try result.get().results!
-                    self.nextPage = try result.get().next!
-                }catch let error {
-                    print(error)
-                }
-            }*/
-            
         }
     }
 }
