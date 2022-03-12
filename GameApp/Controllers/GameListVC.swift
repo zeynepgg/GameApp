@@ -42,21 +42,6 @@ class GameListVC: UIViewController {
             pageControl.currentPage = currentPage
         }
     }
-    var whichCollectionViewScrolled = "" {
-            willSet{
-                print(newValue)
-            }
-        }
-        var isFirstCollectionViewScrolled = false {
-            willSet{
-                print("First CollectionView Scrolled : (newValue)")
-            }
-        }
-        var isSecondCollectionViewScrolled = false {
-            willSet{
-                print("Second CollectionView Scrolled : (newValue)")
-            }
-        }
  
     
     override func viewDidLoad() {
@@ -70,6 +55,9 @@ class GameListVC: UIViewController {
         
         gameListCollectionView.delegate = self
         gameListCollectionView.dataSource = self
+        
+        searchBar.searchTextField.textColor = .white
+        searchBar.searchTextField.tintColor = .white
         
         gameListRequest.getGames { result in
             do {
@@ -219,26 +207,12 @@ extension GameListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         }
         
     }
-    //MARK: HALLETTTT!!!!!
+   
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if let collectionView = scrollView as? UICollectionView {
-                    switch collectionView.tag {
-                    case 1:
-                        whichCollectionViewScrolled = "First"
-                        isFirstCollectionViewScrolled = true
-                        isSecondCollectionViewScrolled = false
-                        let width = scrollView.frame.width
-                        currentPage = Int(scrollView.contentOffset.x / width)
-                        counter = currentPage
-                    case 2:
-                        whichCollectionViewScrolled = "second"
-                        isFirstCollectionViewScrolled = false
-                        isSecondCollectionViewScrolled = true
-                    default:
-                        whichCollectionViewScrolled = "unknown"
-                    }
-                } else{
-                    print("cant cast")
+        if scrollView == gameListCollectionView{
+            let width = scrollView.frame.width
+            currentPage = Int(scrollView.contentOffset.x / width)
+            counter = currentPage
                 }
             
     }

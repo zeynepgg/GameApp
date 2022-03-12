@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorites-->
+        <!--FavoritesVC-->
         <scene sceneID="wkc-3u-Bdm">
             <objects>
                 <viewController id="WRM-dz-dNq" customClass="FavoritesVC" customModule="GameApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,13 +61,16 @@
                                     <constraint firstItem="npE-Qx-kdO" firstAttribute="centerY" secondItem="Lnp-H1-tQn" secondAttribute="centerY" id="Z8D-oR-tbS"/>
                                 </constraints>
                             </view>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="wuf-Kg-Pcu">
+                            <searchBar contentMode="redraw" placeholder="Find a game.." translatesAutoresizingMaskIntoConstraints="NO" id="wuf-Kg-Pcu">
                                 <rect key="frame" x="0.0" y="99" width="414" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="vIz-1z-ltf"/>
                                 </constraints>
                                 <color key="barTintColor" name="DarkGray"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="WRM-dz-dNq" id="Lgj-Da-GN0"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tsk-zH-H9w"/>
@@ -85,9 +88,10 @@
                             <constraint firstItem="wuf-Kg-Pcu" firstAttribute="top" secondItem="Lnp-H1-tQn" secondAttribute="bottom" id="hpA-un-CRr"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" id="OtA-8z-X7K"/>
+                    <tabBarItem key="tabBarItem" title="" image="heart.fill" catalog="system" id="OtA-8z-X7K"/>
                     <connections>
                         <outlet property="collectionView" destination="p1v-5w-FxH" id="nxa-vS-5f8"/>
+                        <outlet property="searchBar" destination="wuf-Kg-Pcu" id="y2H-aL-y1J"/>
                         <segue destination="E8D-dY-Sbf" kind="modal" identifier="goToGameDetails" modalPresentationStyle="fullScreen" id="NmA-sE-O5o"/>
                     </connections>
                 </viewController>
@@ -95,7 +99,96 @@
             </objects>
             <point key="canvasLocation" x="-546.37681159420299" y="178.79464285714286"/>
         </scene>
-        <!--Games-->
+        <!--ConfirmVC-->
+        <scene sceneID="E7K-Dv-7fI">
+            <objects>
+                <viewController id="Ba7-ea-lJE" customClass="ConfirmVC" customModule="GameApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sIv-hw-ezc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dt7-dV-x8B">
+                                <rect key="frame" x="30" y="384" width="354" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to remove game from favorite?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YS-B2-Mky">
+                                        <rect key="frame" x="10" y="10" width="334" height="20.5"/>
+                                        <color key="tintColor" name="DarkGray"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="puh-cP-pyp">
+                                        <rect key="frame" x="15" y="45.5" width="324" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mxx-HD-ceW">
+                                                <rect key="frame" x="0.0" y="0.0" width="152" height="31"/>
+                                                <color key="tintColor" name="DarkGray"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelButtonClicked:" destination="Ba7-ea-lJE" eventType="touchUpInside" id="GKv-H4-M9a"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yz-XD-sZt">
+                                                <rect key="frame" x="172" y="0.0" width="152" height="31"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" name="DarkGray"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Yes">
+                                                    <color key="baseBackgroundColor" name="DarkGray"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="yesButtonClicked:" destination="Ba7-ea-lJE" eventType="touchUpInside" id="YWb-CW-a83"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Mxx-HD-ceW" firstAttribute="width" secondItem="9Yz-XD-sZt" secondAttribute="width" id="Lio-zS-6w8"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="LightPurple"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="puh-cP-pyp" secondAttribute="trailing" constant="15" id="8UF-PF-Rr2"/>
+                                    <constraint firstItem="puh-cP-pyp" firstAttribute="top" secondItem="8YS-B2-Mky" secondAttribute="bottom" constant="15" id="LZb-l6-iX1"/>
+                                    <constraint firstAttribute="height" constant="128" id="YYI-7g-Ign"/>
+                                    <constraint firstItem="puh-cP-pyp" firstAttribute="leading" secondItem="dt7-dV-x8B" secondAttribute="leading" constant="15" id="cpQ-4J-4Wl"/>
+                                    <constraint firstItem="8YS-B2-Mky" firstAttribute="leading" secondItem="dt7-dV-x8B" secondAttribute="leading" constant="10" id="jgF-Dk-JET"/>
+                                    <constraint firstAttribute="trailing" secondItem="8YS-B2-Mky" secondAttribute="trailing" constant="10" id="mvw-qV-HUl"/>
+                                    <constraint firstItem="8YS-B2-Mky" firstAttribute="top" secondItem="dt7-dV-x8B" secondAttribute="top" constant="10" id="o4D-8T-DoE"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BeO-Gg-N93"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dt7-dV-x8B" firstAttribute="centerY" secondItem="sIv-hw-ezc" secondAttribute="centerY" id="0vH-Pm-kHp"/>
+                            <constraint firstItem="dt7-dV-x8B" firstAttribute="centerX" secondItem="sIv-hw-ezc" secondAttribute="centerX" id="CnK-qO-3Gx"/>
+                            <constraint firstItem="dt7-dV-x8B" firstAttribute="leading" secondItem="BeO-Gg-N93" secondAttribute="leading" constant="30" id="VBT-iy-Jby"/>
+                            <constraint firstItem="BeO-Gg-N93" firstAttribute="trailing" secondItem="dt7-dV-x8B" secondAttribute="trailing" constant="30" id="aW1-zY-Vbz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oBE-hI-aeZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4V4-sx-YDe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1235" y="179"/>
+        </scene>
+        <!--Game ListVC-->
         <scene sceneID="WPU-JE-aJE">
             <objects>
                 <viewController id="Hnc-Gg-BYX" customClass="GameListVC" customModule="GameApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -103,7 +196,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Find a game..." translatesAutoresizingMaskIntoConstraints="NO" id="Ab5-yH-Y2Z">
+                            <searchBar contentMode="redraw" placeholder="Find a game.." translatesAutoresizingMaskIntoConstraints="NO" id="Ab5-yH-Y2Z">
                                 <rect key="frame" x="0.0" y="44" width="414" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="RTS-jy-zS9"/>
@@ -122,7 +215,7 @@
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qED-ww-Cqg">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="MediumGray"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="pYi-Ul-Xog"/>
                                                 </constraints>
@@ -160,8 +253,8 @@
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Of The Game" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aI2-5J-rEC">
-                                                                                <rect key="frame" x="10" y="2.5" width="150.5" height="20.5"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <rect key="frame" x="10" y="2.5" width="154.5" height="20.5"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -177,6 +270,7 @@
                                                                     <blurEffect style="regular"/>
                                                                 </visualEffectView>
                                                             </subviews>
+                                                            <color key="backgroundColor" name="MediumGray"/>
                                                             <constraints>
                                                                 <constraint firstItem="qi9-Xd-xDV" firstAttribute="top" secondItem="Sit-gU-pO3" secondAttribute="top" constant="10" id="0a5-Bw-gdo"/>
                                                                 <constraint firstItem="Haq-WS-cqr" firstAttribute="leading" secondItem="Sit-gU-pO3" secondAttribute="leading" id="4qm-eh-12h"/>
@@ -369,7 +463,7 @@
                             <constraint firstItem="Ab5-yH-Y2Z" firstAttribute="leading" secondItem="rpb-Iu-wKf" secondAttribute="leading" id="oW4-ao-poT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Games" image="magnifyingglass" catalog="system" id="Ujl-rY-VSK"/>
+                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="Ujl-rY-VSK"/>
                     <connections>
                         <outlet property="gameListCollectionView" destination="9Hn-sM-UO4" id="4MR-3S-rS6"/>
                         <outlet property="pageControl" destination="AUY-u8-SRR" id="g3k-oa-PLS"/>
@@ -592,6 +686,7 @@
                         <outlet property="genreLabel" destination="s9r-u6-hBx" id="pjJ-Df-sfS"/>
                         <outlet property="metaCriticLabel" destination="5e3-9p-AlD" id="f2k-oT-hCS"/>
                         <segue destination="m2N-Dk-QE8" kind="presentation" identifier="goToSlide" modalPresentationStyle="overFullScreen" id="HW1-Ye-Irl"/>
+                        <segue destination="Ba7-ea-lJE" kind="presentation" identifier="goToPopUp" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="cJn-0U-x6h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3j-gF-nEn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -721,6 +816,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" name="DarkPurple"/>
                         <color key="selectedImageTintColor" name="DarkPurple"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" name="MediumGray"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="Hnc-Gg-BYX" kind="relationship" relationship="viewControllers" id="5ff-Lv-eN8"/>

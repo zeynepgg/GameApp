@@ -9,6 +9,8 @@ import UIKit
 
 class EmptyView: UIView {
    
+    @IBOutlet weak var Img: UIImageView!
+    @IBOutlet weak var textLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,7 +24,6 @@ class EmptyView: UIView {
     func commonInit(){
         let bundle = Bundle.init(for: EmptyView.self)
         if let viewToAdd = bundle.loadNibNamed("EmptyView", owner: self, options: nil), let contentView = viewToAdd.first as? UIView {
-            contentView.backgroundColor = UIColor(patternImage: UIImage(named: "arkaplan")!)
             addSubview(contentView)
             contentView.frame = self.frame
         }

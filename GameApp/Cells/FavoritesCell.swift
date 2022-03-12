@@ -23,8 +23,8 @@ class FavoritesCell: UICollectionViewCell {
     func configure(model: GameDetailsModel){
         self.gameNameLabel.text = model.name
         self.gameImg.loadImage(from: model.background_image!)
-        self.ratingLabel.text = String((model.metacritic)!)
-        self.relasedDate.text = model.released
+        self.ratingLabel.text = "MetaCritic: " + String((model.metacritic)!)
+        self.relasedDate.changeDateFormat(str: model.released!)
         self.favDate.text = createDate()
         self.layer.borderWidth = 0.0
         self.layer.shadowColor = UIColor.black.cgColor
